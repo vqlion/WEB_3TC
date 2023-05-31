@@ -2,7 +2,7 @@
 import "leaflet/dist/leaflet.css";
 import "./Map_Assoc.css"
 import { MapContainer, TileLayer } from "react-leaflet";
-export function Map_Assoc() {
+export function MapPage() {
     return(
         <MapContainer center={[45.784294, 4.876554]} zoom={16}>
       <TileLayer
