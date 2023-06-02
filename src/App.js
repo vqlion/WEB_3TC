@@ -1,18 +1,24 @@
 import Userpage1 from './components/userpage1.js';
 import User from './components/UserProf';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AuthPage from './components/auth';
+import HomePage from './components/homepage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import  {MapPage} from './components/Map_Assoc'
+
+
 function App() {
-  return ( <>
+  return (
+    <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<p><h1>Home Page</h1></p>} />
-        <Route path="/UserProf" element={<User />} />
-        <Route path="/userpage1" element={<Userpage1 />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/map" element={<MapPage />} />
       </Routes>
     </BrowserRouter>
-    </> 
-    
+  </>
   );
 }
 
