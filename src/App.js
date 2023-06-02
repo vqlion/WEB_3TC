@@ -3,7 +3,6 @@ import User from './components/UserProf';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from './components/auth';
 import HomePage from './components/homepage';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import  {MapPage} from './components/Map_Assoc'
 
