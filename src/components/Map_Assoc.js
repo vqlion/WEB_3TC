@@ -106,6 +106,26 @@ export function MapPage() {
         BDE
       </Tooltip>
     </Marker>
+    <Marker position={[45.781132, 4.873470]}>
+      <Tooltip>
+        RI <br/> 2 panneaux
+      </Tooltip>
+    </Marker>
+    <Marker position={[45.782492, 4.876796]}>
+      <Tooltip>
+        BMC <br/> 2 panneaux
+      </Tooltip>
+    </Marker>
+    <Marker position={[45.783756, 4.874121]}>
+      <Tooltip>
+        Rotonde <br/> 2 panneaux
+      </Tooltip>
+    </Marker>
+    <Marker position={[45.781955, 4.873473]}>
+      <Tooltip>
+        BS
+      </Tooltip>
+    </Marker>
     <input type="checkbox" id="topping" name="topping" value="Paneer" />
       Paneer
     </MapContainer>
