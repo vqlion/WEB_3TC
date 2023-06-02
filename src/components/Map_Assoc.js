@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import "./Map_Assoc.css"
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import L from 'leaflet';
-
+import {DraggableMarker} from './DraggableMarker'
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
@@ -18,7 +18,7 @@ export function MapPage() {
     return(
       <MapContainer center={[45.784296, 4.876554]} zoom={16}>
       <TileLayer
-        attribution='&copy; <a href="https://www.flaticon.com/free-icons/pin" title="pin icons">Pin icons created by Those Icons - Flaticon</a>, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+       attribution='&copy; <a href="https://www.flaticon.com/free-icons/pin" title="pin icons">Pin icons created by Those Icons - Flaticon</a>, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={[45.784391, 4.871310]}>
@@ -126,8 +126,7 @@ export function MapPage() {
         BS
       </Tooltip>
     </Marker>
-    <input type="checkbox" id="topping" name="topping" value="Paneer" />
-      Paneer
+      <DraggableMarker />
     </MapContainer>
   );
 }
