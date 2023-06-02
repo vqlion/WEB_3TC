@@ -78,12 +78,12 @@ export function MapPage() {
     </Marker>
     <Marker position={[45.784489, 4.883204]}>
       <Tooltip>
-        Bat A <br/> 2 panneaux
+        Bat A
       </Tooltip>
     </Marker>
     <Marker position={[45.784659, 4.883893]}>
       <Tooltip>
-        Bat B <br/> 2 panneaux
+        Bat B
       </Tooltip>
     </Marker>
     <Marker position={[45.784427, 4.882498]}>
@@ -98,7 +98,7 @@ export function MapPage() {
     </Marker>
     <Marker position={[45.783822, 4.882756]}>
       <Tooltip>
-        Louis Neel <br/> 3 panneaux
+        Louis Neel, 2 panneaux (1 à chaque entrée)
       </Tooltip>
     </Marker>
     <Marker position={[45.784062, 4.874771]}>
@@ -106,6 +106,12 @@ export function MapPage() {
         BDE
       </Tooltip>
     </Marker>
+    <Marker position={[45.78109,4.87359]}>
+      <Tooltip>
+        RI, 2 panneaux (1 par escalier)
+      </Tooltip>
+    </Marker>
+
     <input type="checkbox" id="topping" name="topping" value="Paneer" />
       Paneer
     </MapContainer>
