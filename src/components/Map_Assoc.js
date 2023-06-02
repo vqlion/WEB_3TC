@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import "./Map_Assoc.css"
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import L from 'leaflet';
-import {CustomMarker} from './CustomMarker'
+import { CustomMarker } from './CustomMarker'
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import mapData from '../data/mapData.json'
@@ -16,11 +16,8 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 function getMarker(markerInfo) {
-  return (<>
-    <Marker position={markerInfo.position}>
-      <Tooltip>{markerInfo.tooltip}</Tooltip>
-    </Marker>
-  </>
+  return (
+    <CustomMarker coords={markerInfo.position} message={markerInfo.tooltip} status={false} />
   )
 }
 
@@ -38,8 +35,7 @@ export function MapPage() {
         attribution='&copy; <a href="https://www.flaticon.com/free-icons/pin" title="pin icons">Pin icons created by Those Icons - Flaticon</a>, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      
-      <CustomMarker coords={[45.784294, 4.876554]} status={false} />
+
       {data.map(entry => (getMarker(entry)))}
     </MapContainer>
   );
