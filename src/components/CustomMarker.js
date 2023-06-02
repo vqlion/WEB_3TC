@@ -13,15 +13,20 @@ import {Icon} from "leaflet"
   })
   const customIcon = [customIconOff, customIconOn]
   var currentIconIndex = 0
+  var done = 0
   
   export function CustomMarker({coords, status, message}) {
     const center = {
       lat: coords[0],
       lng: coords[1],
     }
+    if (status && done == 0) {
+      currentIconIndex = 1
+      done = 1
+    }
+    
   
     const [iconStatus, setIconStatus] = useState(status)
-    const [active, setActive] = useState(false)
     //const [icon, setIcon] = useState( {iconUrl: require("../icons/location.png"), iconSize: [38,38]});
     const markerRef = useRef(null)
     const eventHandlers = useMemo(
