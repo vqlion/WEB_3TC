@@ -41,7 +41,6 @@ export function MapPage() {
       
       <CustomMarker coords={[45.784294, 4.876554]} status={false} />
       {data.map(entry => (getMarker(entry)))}
-      <DraggableMarker />
     </MapContainer>
   );
 }

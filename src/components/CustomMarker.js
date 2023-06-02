@@ -14,7 +14,7 @@ import {Icon} from "leaflet"
   const customIcon = [customIconOff, customIconOn]
   var currentIconIndex = 0
   
-  export function CustomMarker({coords, status}) {
+  export function CustomMarker({coords, status, message}) {
     const center = {
       lat: coords[0],
       lng: coords[1],
@@ -49,9 +49,7 @@ import {Icon} from "leaflet"
         ref={markerRef}>
         <Tooltip minWidth={90}>
           <span>
-            {currentIconIndex==1
-              ? 'affiche manquante '
-              : 'affiche présente'}
+           {message}
           </span>
         </Tooltip>
       </Marker>
