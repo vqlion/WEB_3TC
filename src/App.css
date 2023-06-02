@@ -27,7 +27,45 @@
 .App-link {
   color: #61dafb;
 }
+/* --------------------------------Added--------------- */
+div.container {
+  /* position: absolute; */
+  width: 100%;
+  height: 713px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 5px;
+  background-color: whitesmoke;
+  margin: 0;
+}
+div.profil {
+  font-family: 'Courgette',cursive;
+  background-color: linen;
+  width: fit-content;
+  height: 100%; 
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.205);
+}
+div.listeAssos {
+  font-family: 'Courgette',cursive;
+  background-color: linen;
+  width: 100%;
+  height: 100%; 
+  margin: auto;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.205);
+}
+div.photo {
+  background-color: transparent;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+div.group {
+  vertical-align: middle;
+  margin: 0.5em;
+  height: 32px;
+  background-color: transparent;
+}
 
+/* --------------------------------Added--------------- */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
