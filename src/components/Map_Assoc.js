@@ -39,7 +39,7 @@ export function MapPage() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       
-      <CustomMarker coords={[45.784294, 4.876554]} status={false} />
+      <CustomMarker coords={[45.784294, 4.876554]} status={true} />
       {data.map(entry => (getMarker(entry)))}
     </MapContainer>
   );
