@@ -1,64 +1,49 @@
-.firsttitle{    
-    color: #1eff9e;
-    padding: 100px;
-    font-family: Sans-Serif;
-    text-align: center;
-}
-
-.bigblue {
-    color: DodgerBlue;
-    padding: 40px;
-    font-family: Sans-Serif;
-    text-align: center;
-  }
-
-.bigrose {
-    color: rosybrown;
-    padding: 40px;
-    font-family: Sans-Serif;
-    text-align: center;
-  }
-
-  div.container {
+  .mainContainer {
     width: 100%;
-    height: 713px;
-    display: grid;
-    grid-template-columns: auto 1fr;
+    height: 100%;
     grid-gap: 5px;
-    background-color: lightblue;
+    background-color: white;
     margin: 0;
   }
-  div.header {
+  .header {
     font-family: 'Courgette',cursive;
     background-color: lightgoldenrodyellow;
-    width: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 40px; 
+    height: 60px; 
     width: 100%;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.205);
   }
-  div.contenu {
+  .nameAppli{
+    font-size: 2em;
+    color: black;
+    user-select: none;
+  }
+  .wrapper{
     font-family: 'Courgette',cursive;
     background-color: white;
     width: 100%;
     height: 100%; 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin: auto;
+    margin: 0;
   }
   a {
     outline: none;
     text-decoration: none;
-    display: inline-block;
-    width: 19.5%;
-    margin: 0.5%;
+    display: flex;
+    width: 23%;
+    height: 10%;
+    /* padding-top: 10px; */
+    margin: 0;
     margin-right: 0.625%;
     text-align: center;
-    line-height: 3;
+    font-size: large;
     color: white;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
     border-radius: 2;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.205);
   }
@@ -70,4 +55,10 @@
   a:hover {
     background: white;
     color: black;
+  }
+  .icon{
+    margin-right: 15px;
+    font-size: x-large;
+    color: black;
+   
   }
