@@ -1,33 +1,19 @@
-  .mainContainer {
-    width: 100%;
-    grid-gap: 5px;
-    background-color: white;
-    margin: 0;
-  }
   .header {
     background-color: lightgoldenrodyellow;
     display: flex;
     flex-direction: column;
-    height: 60px; 
+    height: 60px;
     width: 100%;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.205);
   }
-  .nameAppli{
+
+  .nameAppli {
     font-size: 2em;
     color: black;
     user-select: none;
   }
-  .wrapper{
-    background-color: white;
-    width: 100%;
-    height: 100%; 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0;
-  }
-  
-  .icon{
+
+  .icon {
     margin-right: 15px;
     font-size: x-large;
     color: black;

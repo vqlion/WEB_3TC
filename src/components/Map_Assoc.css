@@ -30,3 +30,8 @@
   .leaflet-control-attribution a {
     min-width: fit-content;
   }
+  
+  .leaflet-control-attribution {
+    display: flex;
+    gap: 5px;
+  }

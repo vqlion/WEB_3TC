@@ -6,15 +6,15 @@ import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 function Userpage1() {
     return (
-        <div className='mainContainer'>
+        <div className='wrapper'>
             <div className='header'>
                 <h2 class='nameAppli'>NomAppli</h2>
             </div>
-            <div className='wrapper'>
+            <div className='links-container'>
                 <Link className='link-box' to="info"><FaRegUserCircle className='icon' />Informations</Link>
                 <Link className='link-box' to="asso"><FaRegListAlt className='icon' />Listes assos</Link>
             </div>
-            <Outlet />
+            <Outlet />  
         </div>
 
     );

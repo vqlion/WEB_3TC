@@ -1,5 +1,4 @@
-.welcome-container,
-.wrapper {
+.welcome-container {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -19,27 +18,12 @@ h1 {
     margin: 0;
 }
 
-.wrapper {
-    padding: 2rem;
-    gap: 2rem;
-}
-
-.welcome-container .links {
-    display: flex;
-    gap: 2rem;
-}
-
 .map {
     width: 60%;
     height: 500px;
 }
 
 @media screen and (max-width : 480px) {
-    .wrapper {
-        padding: 0;
-        overflow: hidden;
-    }
-    
     .map {
         width: 100%;
     }

@@ -8,7 +8,7 @@ function HomePage() {
         <img src='/sfr.png' className='sfr'></img>
         <div className="welcome-container">
             <h1>Bienvenue</h1>
-            <div className='links'>
+            <div className='links-container'>
                 <a href="/login" className='link-box'>Se connecter</a>
                 <a href="/profile" className='link-box'>Mon profil</a>
             </div>
