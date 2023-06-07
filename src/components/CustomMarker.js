@@ -1,7 +1,7 @@
 import { useState, useRef, useMemo, useCallback } from "react";
 import {Marker, Tooltip} from "react-leaflet"
-import {Icon} from "leaflet"
-
+import {Icon, icon} from "leaflet"
+import axios from "axios"
 
   const customIconOff = new Icon({
     iconUrl: require("../icons/location.png"),
@@ -19,18 +19,70 @@ import {Icon} from "leaflet"
       lat: coords[0],
       lng: coords[1],
     }  
+
+    //Check the DB and get the status of the markers
+    const reqDone = useRef(false);
+    const updateMarkersWithDB = () =>
+      {
+        if(!reqDone.current)
+          {
+            reqDone.current = true; //to make sure the DB call only gets made once when we initialise the marker
+                let currentMarker = 
+                  {
+                    AssoID: "exit",
+                    Latitude: center["lat"],
+                    Longitude: center["lng"],
+                  } //we'll use that object to find the current marker in the DB and get its status if the marker
+                  //isn't in the DB yet, we'lle get a "DNE" response and ignore it (the marker will be false anyways)
+    
+                axios
+                .post("http://localhost:8082/api/getmarker", currentMarker)
+                .then( (res) => 
+                  { 
+                    if (res.data== true) //if the marker is in the DB and its flag is set to true
+                      {
+                        console.log(res.data)
+                        setIconStatus((iconStatus+1)%2)
+                      }
+                  })
+                  .catch( (err) => { console.log(err) });   
+          }      
+      }
+    updateMarkersWithDB();
+
+
     const [iconStatus, setIconStatus] = useState(status ? 1: 0);
     const markerRef = useRef(null)
     const eventHandlers = 
       {
         click() {
           setIconStatus((iconStatus+1)%2)
-          console.log(iconStatus)
-          
+          sendToDB();
         },
 
       }
-    
+      
+    // This function gets the lat and lng of the current marker as well as its status and updates 
+    // (or adds if it doesn't already exist) the marker in the DB 
+    const sendToDB = () =>
+      {
+        let currentMarker = 
+          {
+            AssoID: "exit",
+            Latitude: center["lat"],
+            Longitude: center["lng"],
+            Status: !iconStatus
+          }
+        axios
+          .post('http://localhost:8082/api/updatemarker', currentMarker)
+          .then((res) => {
+              console.log(res)
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+
   
     return (
       <Marker
