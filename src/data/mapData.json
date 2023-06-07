@@ -1,0 +1,205 @@
+[
+    {
+        "position": [
+            45.784391,
+            4.871310
+        ],
+        "tooltip": "Bat F"
+    },
+    {
+        "position": [
+            45.784753,
+            4.871872
+        ],
+        "tooltip": "Bat I : 2 panneaux (1 à chaque entrée)"
+    },
+    {
+        "position": [
+            45.784413,
+            4.872699
+        ],
+        "tooltip": "Bat E"
+    },
+    {
+        "position": [
+            45.783600,
+            4.872673
+        ],
+        "tooltip": "TC"
+    },
+    {
+        "position": [
+            45.783546,
+            4.8745433
+        ],
+        "tooltip": "Humas : 1 panneau et 1 panneau développement durable"
+    },
+    {
+        "position": [
+            45.780090,
+            4.874163
+        ],
+        "tooltip": "Bat D"
+    },
+    {
+        "position": [
+            45.779843,
+            4.872915
+        ],
+        "tooltip": "Bat C"
+    },
+    {
+        "position": [
+            45.780245,
+            4.873440
+        ],
+        "tooltip": "Magellan"
+    },
+    {
+        "position": [
+            45.783229,
+            4.873314
+        ],
+        "tooltip": "GEN : 3 panneaux (1 à chaque entrée)"
+    },
+    {
+        "position": [
+            45.784755,
+            4.874061
+        ],
+        "tooltip": "Bat H"
+    },
+    {
+        "position": [
+            45.782917,
+            4.871762
+        ],
+        "tooltip": "GE"
+    },
+    {
+        "position": [
+            45.78443,
+            4.88332
+        ],
+        "tooltip": "Bat A"
+    },
+    {
+        "position": [
+            45.784659,
+            4.883893
+        ],
+        "tooltip": "Bat B"
+    },
+    {
+        "position": [
+            45.784427,
+            4.882498
+        ],
+        "tooltip": "Maryam Mirzakhani"
+    },
+    {
+        "position": [
+            45.784443,
+            4.881837
+        ],
+        "tooltip": "Jean d'Alembert : 2 panneaux (1 à chaque entrée)"
+    },
+    {
+        "position": [
+            45.783822,
+            4.882756
+        ],
+        "tooltip": "Louis Neel : 2 panneaux (1 à chaque entrée)"
+    },
+    {
+        "position": [
+            45.784062,
+            4.874771
+        ],
+        "tooltip": "BDE : 3 panneaux (2 en bas et 1 dans les escaliers)"
+    },
+    {
+        "position": [
+            45.781132,
+            4.873470
+        ],
+        "tooltip": "RI : 2 panneaux (1 dans chaque escalier)"
+    },
+    {
+        "position": [
+            45.78261,
+            4.87659
+        ],
+        "tooltip": "BMC : 2 panneaux"
+    },
+    {
+        "position": [
+            45.78391,
+            4.87403
+        ],
+        "tooltip": "Rotonde : 2 panneaux"
+    },
+    {
+        "position": [
+            45.781955,
+            4.873473
+        ],
+        "tooltip": "BS : 2 panneaux (1 à chaque entrée)"
+    },
+    {
+        "position": [
+            45.78222,
+            4.87245
+        ],
+        "tooltip": "IF/SGM : 2 panneaux (1 à l'entrée principale, 1 côté Clubelek)"
+    },
+    {
+        "position": [
+            45.78247,
+            4.87205
+        ],
+        "tooltip": "Amphi Gaston Berger"
+    },
+    {
+        "position": [
+            45.78244,
+            4.87388
+        ],
+        "tooltip": "Amphi Laura Bassi"
+    },
+    {
+        "position": [
+            45.78270,
+            4.87346
+        ],
+        "tooltip": "GI"
+    },
+    {
+        "position": [
+            45.78297,
+            4.87520
+        ],
+        "tooltip": "GM Jacquard"
+    },
+    {
+        "position": [
+            45.78307,
+            4.87666
+        ],
+        "tooltip": "GM Jacqueline Ferrand"
+    },
+    {
+        "position": [
+            45.78407,
+            4.87680
+        ],
+        "tooltip": "GCU"
+    },
+    {
+        "position": [
+            45.78408,
+            4.87997
+        ],
+        "tooltip": "Bat G/J"
+    }
+]

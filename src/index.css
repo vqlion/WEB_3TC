@@ -20,6 +20,7 @@ a {
 .link-box {
   padding: 5px;
   box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.479);
+  min-width: fit-content;
 }
 
 .link-box:hover {
