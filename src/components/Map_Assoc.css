@@ -1,37 +1,37 @@
-.Map_Assoc {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #root {
-    height: 100vh;
-  }
-  
-  /* sizing of map container */
-  .leaflet-container {
-    height: 100%;
-  }
-  
-  .checkbox-layer {
-    position: absolute;
-    top: 10px; /* Adjust the position as per your requirements */
-    right: 10px; /* Adjust the position as per your requirements */
-    z-index: 1000; /* Ensure a higher z-index to display the checkboxes above the map */
-    background-color: white; /* Optional background color for the checkbox layer */
-    padding: 10px; /* Optional padding */
-  }
-  
-  .leaflet-control-attribution a {
-    min-width: fit-content;
-  }
-  
-  .leaflet-control-attribution {
-    display: flex;
-    gap: 5px;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100vh;
+}
+
+/* sizing of map container */
+.leaflet-container {
+  height: 100%;
+}
+
+.checkbox-layer {
+  position: absolute;
+  top: 10px;
+  /* Adjust the position as per your requirements */
+  right: 10px;
+  /* Adjust the position as per your requirements */
+  z-index: 1000;
+  /* Ensure a higher z-index to display the checkboxes above the map */
+  background-color: white;
+  /* Optional background color for the checkbox layer */
+  padding: 10px;
+  /* Optional padding */
+}
+
+.leaflet-control-attribution a {
+  min-width: fit-content;
+}
+
+.leaflet-control-attribution {
+  display: flex;
+  gap: 5px;
+}

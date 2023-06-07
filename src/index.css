@@ -17,6 +17,16 @@ a {
   color: unset;
 }
 
+button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 .wrapper {
   display: flex;
   width: 100%;
@@ -32,8 +42,10 @@ a {
 }
 
 .link-box {
+  display: flex;
   padding: 1em;
   box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.479);
+  align-items: center;
   min-width: fit-content;
 }
 
