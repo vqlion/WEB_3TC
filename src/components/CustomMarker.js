@@ -12,45 +12,32 @@ import {Icon} from "leaflet"
     iconSize: [38, 38]
   })
   const customIcon = [customIconOff, customIconOn]
-  var currentIconIndex = 0
-  var done = 0
+ 
   
   export function CustomMarker({coords, status, message}) {
     const center = {
       lat: coords[0],
       lng: coords[1],
-    }
-    if (status && done == 0) {
-      currentIconIndex = 1
-      done = 1
-    }
-    
-  
-    const [iconStatus, setIconStatus] = useState(status)
-    //const [icon, setIcon] = useState( {iconUrl: require("../icons/location.png"), iconSize: [38,38]});
+    }  
+    const [iconStatus, setIconStatus] = useState(status ? 1: 0);
     const markerRef = useRef(null)
-    const eventHandlers = useMemo(
-      () => ({
+    const eventHandlers = 
+      {
         click() {
-          changeIcon()
-          currentIconIndex = (currentIconIndex+1)%2
+          setIconStatus((iconStatus+1)%2)
+          console.log(iconStatus)
+          
         },
 
-      }),
-      [],
-    )
+      }
     
-    const changeIcon = useCallback(() => {
-      setIconStatus((d) => !d)
-      
-    }, [])
   
     return (
       <Marker
         draggable={false}
         eventHandlers={eventHandlers}
         position={center}
-        icon={customIcon[currentIconIndex]}
+        icon={customIcon[iconStatus]}
         ref={markerRef}>
         <Tooltip minWidth={90}>
           <span>
