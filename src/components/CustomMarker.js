@@ -1,6 +1,6 @@
-import { useState, useRef, useMemo, useCallback } from "react";
+import { useState, useRef } from "react";
 import {Marker, Tooltip} from "react-leaflet"
-import {Icon, icon} from "leaflet"
+import {Icon} from "leaflet"
 import axios from "axios"
 
   const customIconOff = new Icon({
