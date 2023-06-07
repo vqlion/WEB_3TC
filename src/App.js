@@ -1,43 +1,29 @@
-import Userpage1 from './components/userpage1.js';
-import User from './components/UserProf';
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from './components/auth';
+import Userpage1 from './components/userpage1';
 import HomePage from './components/homepage';
 import './App.css';
-import  {MapPage} from './components/Map_Assoc'
+import { MapPage } from './components/Map_Assoc'
+import Userdata from './components/info';
 
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/map" element={<MapPage />} />
-      </Routes>
-    </BrowserRouter>
-  </>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/map" element={<MapPage />} />
+          <Route path="profile" element={<Userpage1 />}>
+            <Route path="info" element={<Userdata />} />
+            <Route path="asso" element={<Userdata />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
 export default App;
-
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );

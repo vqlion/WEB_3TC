@@ -1,15 +1,16 @@
 import React from 'react'
-function userData() {
+import './info.css'
+import '../index.css'
+function Userdata() {
     return ( 
-        <div className='mainContainer'>
-            <div className='header'> Header </div>
+        <div className='wrapper'>
+            <div className='header'> welcome </div>
             <div className='contenu'>
-                <a href="info">information</a>
-                <a href="asso">Listes Assos</a>
+                <h1>Données de l'utilisateur</h1>
              </div>
         </div>
 
      );
 }
 
-export default userData;
+export default Userdata;
