@@ -25,8 +25,8 @@ import axios from 'axios';
       currentIconIndex = 1
       done = 1
     }
-    const reqDone = useRef(false);
     //Check the DB and get the status of the markers
+    const reqDone = useRef(false);
     const updateMarkersWithDB = () =>
       {
         if(!reqDone.current)
@@ -34,6 +34,7 @@ import axios from 'axios';
             reqDone.current = true; //to make sure the DB call only gets made once when we initialise the marker
                 let currentMarker = 
                   {
+                    AssoID: "exit",
                     Latitude: center["lat"],
                     Longitude: center["lng"],
                   } //we'll use that object to find the current marker in the DB and get its status if the marker
@@ -54,6 +55,7 @@ import axios from 'axios';
           }      
       }
     updateMarkersWithDB();
+    //end of DB call
 
     const [iconStatus, setIconStatus] = useState(status)
     //const [icon, setIcon] = useState( {iconUrl: require("../icons/location.png"), iconSize: [38,38]});
@@ -77,6 +79,7 @@ import axios from 'axios';
       {
         let currentMarker = 
           {
+            AssoID: "exit",
             Latitude: center["lat"],
             Longitude: center["lng"],
             Status: currentIconIndex
