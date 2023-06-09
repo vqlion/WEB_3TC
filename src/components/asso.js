@@ -1,6 +1,6 @@
 import React from 'react'
 import '../index.css'
-function assoUser() {
+function AssoUser() {
     return ( 
         <div className='wrapper'>
             <header className='header'> welcome </header>
@@ -12,4 +12,4 @@ function assoUser() {
      );
 }
 
-export default assoUser;
+export default AssoUser;

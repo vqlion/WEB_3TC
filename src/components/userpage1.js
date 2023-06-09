@@ -8,13 +8,13 @@ import axios from 'axios';
 import styles from './menu.module.css'
 import styled from 'styled-components'
 import { useState } from 'react';
+
 function Userpage1() {
     const getUserInfo = () => {
         // axios
         //     .get('http://localhost:8082/api/getusers')
         //     .then((res) => console.log(res))
     }
-
     const FlexDiv = styled.div`
     display: flex;
     flex-direction: row;
