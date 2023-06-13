@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
-import { json } from 'react-router-dom';
 
 function AuthPage() {
     const [user, setUser] = useState([]);
@@ -32,6 +31,22 @@ function AuthPage() {
         },
         [user]
     );
+
+    const getProfileInfo = () => {
+        const userData = JSON.parse(localStorage.getItem('userData'))
+        if (userData) {
+            setItems(items)
+        }
+        return userData
+    }
+
+    useEffect(
+        () => {
+            let ignore = false;
+            if (!ignore) getProfileInfo()
+            return () => { ignore = true; }
+        }
+    )
 
     // log out function to log the user out of google and set the profile array to null
     const logOut = () => {
