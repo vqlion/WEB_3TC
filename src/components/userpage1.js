@@ -10,11 +10,11 @@ import styled from 'styled-components'
 import { useState } from 'react';
 
 function Userpage1() {
-    const getUserInfo = () => {
-        // axios
-        //     .get('http://localhost:8082/api/getusers')
-        //     .then((res) => console.log(res))
-    }
+    // const getUserInfo = () => {
+    //     axios
+    //         .get('http://localhost:8082/api/getusers')
+    //         .then((res) => console.log(res))
+    // }
     const FlexDiv = styled.div`
     display: flex;
     flex-direction: row;
@@ -37,7 +37,7 @@ function Userpage1() {
                     </FlexDiv>
                     <nav className='links-container' data-visible={visibleStatus}>
                         <Link className='link-box' to="/"><FaHome className='icon' /></Link>
-                        <Link className='link-box' to="info" onClick={getUserInfo}><FaRegUserCircle className='icon' /></Link>
+                        <Link className='link-box' to="info" ><FaRegUserCircle className='icon' /></Link>
                         <Link className='link-box' to="asso"><FaRegListAlt className='icon' /></Link>
                     </nav>
                 </div>
@@ -48,5 +48,5 @@ function Userpage1() {
     );
 
 }
-
+//onClick={getUserInfo}
 export default Userpage1;

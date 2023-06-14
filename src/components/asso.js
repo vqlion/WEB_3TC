@@ -3,9 +3,9 @@ import '../index.css'
 function AssoUser() {
     return ( 
         <div className='wrapper'>
-            <header className='header'> welcome </header>
+            <header className='header'><h2>Listes des associations</h2></header>
             <div className='contenu'>
-                <h1>welcome</h1>
+                <h3>welcome</h3>
              </div>
         </div>
 
