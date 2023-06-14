@@ -33,10 +33,7 @@ function AuthPage() {
     );
 
     const getProfileInfo = () => {
-        const userData = getUserData()
-        if (userData) {
-            setProfile(userData)
-        }
+        getUserData().then(res => setProfile(res)).catch(setProfile(null))
     }
 
     useEffect(
