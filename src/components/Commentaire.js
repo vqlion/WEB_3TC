@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, SafeAreaView, StyleSheet, Modal,
 		View, TextInput } from "react-native";
-
+import axios from "axios";
 //const { width } = Dimensions.get("window");
+
+
 
 export function Commentaire() {
 	
@@ -16,7 +18,6 @@ export function Commentaire() {
 	// Open and close modal upon button clicks.
 	const toggleModalVisibility = () => {
 		setModalVisible(!isModalVisible);
-		console.log("test");
 		console.log(isModalVisible);
 	};
 
@@ -24,11 +25,38 @@ export function Commentaire() {
       {
         click() {
           setModalVisible(!isModalVisible)
-          //sendToDB();
         },
 
       }
 
+	const postComment = () =>
+	  {
+		var asso = "exit"
+		var user = "alice"
+		let now = new Date();
+		if (inputValue=="") 
+			{
+				toggleModalVisibility()
+				return
+			}
+		let temp = {
+			"content": inputValue, 
+			"date": now,
+			"asso": asso,
+			"user": user
+		}
+		axios
+			.post("http://localhost:8082/api/addcomment", temp)
+			.then(()=>
+				{
+					toggleModalVisibility();
+					setInputValue('');
+					window.location.reload(false);
+				})
+			.catch(err => console.log(err));
+
+	  }
+	
 
 	return (
 		<SafeAreaView style={styles.screen}>
@@ -44,7 +72,7 @@ export function Commentaire() {
 			<Modal animationType="slide"
 				transparent visible={isModalVisible}
 				presentationStyle="overFullScreen"
-				//onDismiss={toggleModalVisibility}
+				//onDismiss={dudu}
 				>
 				<View style={styles.viewWrapper}>
 					<View style={styles.modalView}>
@@ -54,6 +82,9 @@ export function Commentaire() {
 
 						{/** This button is responsible to close the modal */}
 						<Button title="Close" onPress={toggleModalVisibility}/>
+						<br></br>
+						<Button title="Submit" onPress={postComment}/>
+
 					</View>
 				</View>
 			</Modal>

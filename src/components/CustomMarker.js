@@ -48,7 +48,7 @@ import axios from "axios"
                   .catch( (err) => { console.log(err) });   
           }      
       }
-    //updateMarkersWithDB();
+    updateMarkersWithDB();
 
 
     const [iconStatus, setIconStatus] = useState(status ? 1: 0);
@@ -57,7 +57,7 @@ import axios from "axios"
       {
         click() {
           setIconStatus((iconStatus+1)%2)
-          //sendToDB();
+          sendToDB();
         },
 
       }
