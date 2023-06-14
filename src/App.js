@@ -6,7 +6,7 @@ import HomePage from './components/homepage';
 import './App.css';
 import { MapPage } from './components/Map_Assoc'
 import Userdata from './components/info';
-
+import AssoUser from './components/asso';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="/map" element={<MapPage />} />
           <Route path="profile" element={<Userpage1 />}>
             <Route path="info" element={<Userdata />} />
-            <Route path="asso" element={<Userdata />} />
+            <Route path="asso" element={<AssoUser />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -17,7 +17,6 @@ function Userpage1() {
         //     .get('http://localhost:8082/api/getusers')
         //     .then((res) => console.log(res))
     }
-
     const FlexDiv = styled.div`
     display: flex;
     flex-direction: row;

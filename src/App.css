@@ -58,12 +58,6 @@ div.photo {
   margin-left: 20px;
   margin-right: 20px;
 }
-div.group {
-  vertical-align: middle;
-  margin: 0.5em;
-  height: 32px;
-  background-color: transparent;
-}
 
 /* --------------------------------Added--------------- */
 @keyframes App-logo-spin {
