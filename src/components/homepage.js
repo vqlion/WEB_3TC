@@ -2,6 +2,7 @@ import './homepage.css'
 import "../index.css"
 
 import { MapPage } from './Map_Assoc'
+import { Commentaire } from './Commentaire'
 
 function HomePage() {
     return (<div className='wrapper'>
@@ -12,6 +13,9 @@ function HomePage() {
                 <a href="/login" className='link-box'>Se connecter</a>
                 <a href="/profile" className='link-box'>Mon profil</a>
             </div>
+        </div>
+        <div>
+            <Commentaire />
         </div>
         <div className='map'>
             <MapPage />
