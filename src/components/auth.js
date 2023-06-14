@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import getUserData from '../lib/AuthHelper';
 
 function AuthPage() {
     const [user, setUser] = useState([]);
-    const [profile, setProfile] = useState([]);
-    const [items, setItems] = useState([])
+    const [profile, setProfile] = useState();
 
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => setUser(codeResponse),
@@ -24,20 +24,19 @@ function AuthPage() {
                     })
                     .then((res) => {
                         setProfile(res.data);
-                        localStorage.setItem('userData', JSON.stringify(res.data))
+                        sessionStorage.setItem('userData', JSON.stringify(res.data))
                     })
-                    .catch((err) => console.log(err));
+                    .catch((err) => console.log(''));
             }
         },
         [user]
     );
 
     const getProfileInfo = () => {
-        const userData = JSON.parse(localStorage.getItem('userData'))
+        const userData = getUserData()
         if (userData) {
-            setItems(items)
+            setProfile(userData)
         }
-        return userData
     }
 
     useEffect(
@@ -45,23 +44,18 @@ function AuthPage() {
             let ignore = false;
             if (!ignore) getProfileInfo()
             return () => { ignore = true; }
-        }
+        }, []
     )
 
     // log out function to log the user out of google and set the profile array to null
     const logOut = () => {
         googleLogout();
         setProfile(null);
-        localStorage.clear();
+        sessionStorage.clear();
     };
 
     const display = () => {
-        const items = JSON.parse(localStorage.getItem('userData'));
-        if (items) {
-            setItems(items)
-        }
-
-        console.log(items)
+        console.log(profile)
     }
 
     return (
@@ -79,6 +73,8 @@ function AuthPage() {
                     <br />
                     <br />
                     <button onClick={logOut}>Log out</button>
+                    <br />
+                    <button onClick={display}>display</button>
                 </div>
             ) : (<div>
                 <button onClick={display}>display</button>
