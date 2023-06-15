@@ -11,12 +11,14 @@ import { useState, useEffect } from 'react';
 import getUserData from '../lib/AuthHelper';
 import { useNavigate } from 'react-router-dom';
 
+
 function Userpage1() {
-    // const getUserInfo = () => {
-    //     axios
-    //         .get('http://localhost:8082/api/getusers')
-    //         .then((res) => console.log(res))
-    // }
+    const getUserInfo = () => {
+        // axios
+        //     .get('http://localhost:8082/api/getusers')
+        //     .then((res) => console.log(res))
+    }
+    
     const FlexDiv = styled.div`
     display: flex;
     flex-direction: row;
@@ -32,17 +34,17 @@ function Userpage1() {
         return visibleStatus ? <FaChevronUp className='icon' /> : <FaChevronDown className='icon' />
     }
 
-    const checkUserLoggedIn = async () => {
-        getUserData().then((res) =>{
-            setProfile(res)
-            if(!res) {
-                setTimeout(() => {
-                navigate('/login')
-                }, 2000);
-            }
-        }) 
-        .catch(setProfile(null))
-    }
+    // const checkUserLoggedIn = async () => {
+    //     getUserData().then((res) =>{
+    //         setProfile(res)
+    //         if(!res) {
+    //             setTimeout(() => {
+    //             navigate('/login')
+    //             }, 2000);
+    //         }
+    //     }) 
+    //     .catch(setProfile(null))
+    // }
 
     return (
         <div className='wrapper'>

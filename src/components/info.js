@@ -2,8 +2,8 @@ import React from 'react'
 import '../index.css'
 import axios from 'axios';
 import { useEffect } from 'react';
-import { useState } from 'react';
-import Card from './Card'
+//mport Card from './Card'
+import { useState, useRef } from "react"
 function Userdata() {
     // const [dataUser,setData] = useState([]);
     // useEffect(() => {
@@ -15,19 +15,40 @@ function Userdata() {
         
     //    fetchUserData();
     // });
-    const getUserInfo = () => {
+
+    // const getUserInfo = () => {
+    //     axios
+    //         .get('http://localhost:8082/api/getusers')
+    //         .then((res) => console.log(res))
+    // }
+    // getUserInfo();
+
+    var userId = "6489fcfb22ecc34e945ab951"
+    const [users, updateusers] = useState([]);
+    const reqDone = useRef(false);
+    function getUserInfo2()
+    {   
+        
+        reqDone.current=true;
         axios
-            .get('http://localhost:8082/api/getusers')
-            .then((res) => console.log(res))
+            .post("http://localhost:8082/api/getuser", {"_id": userId})
+            .then(res=>
+                    {
+                        console.log(res.data)
+                        let userslist = res.data;
+                        let user = userslist.map(us => <div><b style={{fontSize:20 + 'px'}}>{us["username"]}</b></div>)
+                        updateusers(user);
+                    })
+            .catch(err => console.log(err))
     }
-    getUserInfo();
+    if (reqDone.current==false) getUserInfo2()
     return ( 
         <div className='wrapper'>
             <header className='header'> <h2>Profil</h2> </header>
             <div className='affichage'> 
                 <div >
                     <h3>Nom d'utilisateur</h3>
-                    <p>username_Base</p>
+                    <p>{users}</p>
                 </div>
             </div> 
         </div>
