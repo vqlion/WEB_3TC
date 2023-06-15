@@ -53,6 +53,14 @@ button {
   background-color: rgba(0, 0, 0, 0.055);
   transition: all 100ms;
 }
+.affichage {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  transition: all 100ms;
+  padding: 2rem;
+  gap: 2rem;
+}
 
 @media screen and (max-width : 480px) {
   .wrapper {

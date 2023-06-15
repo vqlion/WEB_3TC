@@ -1,11 +1,35 @@
 import './homepage.css'
 import "../index.css"
-
+import axios from 'axios'
 import { MapPage } from './Map_Assoc'
 import { Commentaire } from './Commentaire'
 import { AssoList } from './AssoList'
+import { useState, useRef } from "react"
+
 
 function HomePage() {
+    var asso = "exit"
+    const [list, updateList] = useState([]);
+    const reqDone = useRef(false);
+    function getComments()
+    {
+        console.log("incom")
+        reqDone.current=true;
+        axios
+            .post("http://localhost:8082/api/getcomments", {"asso": asso})
+            .then(res=>
+                    {
+                        console.log(res.data)
+                        let listCom = res.data;
+                        console.log(listCom[0]["content"])
+                        let divList = listCom.map(com => <div><b style={{fontSize:10 + 'px'}}>{com["user"]}</b> <b style={{fontSize:10 + 'px'}}>{com["date"]}</b> <br></br><div>{com["content"]}</div> <br></br> </div>)
+                        updateList(divList);
+                    })
+            .catch(err => console.log(err))
+        console.log(list)
+    }
+    if (reqDone.current==false) getComments()
+
     return (<div className='wrapper'>
         <img src='/sfr.png' className='sfr'></img>
         <div className="welcome-container">
@@ -23,6 +47,11 @@ function HomePage() {
                 <MapPage />
             </div>
             <AssoList />
+        </div>
+        <h3>Commentaires</h3>
+        <div>
+        {list}
+
         </div>
     </div>
     )

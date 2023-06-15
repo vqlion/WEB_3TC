@@ -11,12 +11,14 @@ import { useState, useEffect } from 'react';
 import getUserData from '../lib/AuthHelper';
 import { useNavigate } from 'react-router-dom';
 
+
 function Userpage1() {
     const getUserInfo = () => {
         // axios
         //     .get('http://localhost:8082/api/getusers')
         //     .then((res) => console.log(res))
     }
+    
     const FlexDiv = styled.div`
     display: flex;
     flex-direction: row;
@@ -44,41 +46,26 @@ function Userpage1() {
         .catch(setProfile(null))
     }
 
-    useEffect(
-        () => {
-            let ignore = false;
-            if (!ignore) {
-                checkUserLoggedIn()
-            }
-            return () => { ignore = true; }
-        }, []
-    )
+    return (
+        <div className='wrapper'>
+            <header className='header'>
+                <div className={styles.menu}>
+                    <FlexDiv>
+                        <h2 className='nameAppli'>Username</h2>
+                        <button onClick={() => setVisibleStatus(!visibleStatus)}> {getChevron()}</button>
+                    </FlexDiv>
+                    <nav className='links-container' data-visible={visibleStatus}>
+                        <Link className='link-box' to="/"><FaHome className='icon' /></Link>
+                        <Link className='link-box' to="info" onClick={getUserInfo}><FaRegUserCircle className='icon' /></Link>
+                        <Link className='link-box' to="asso"><FaRegListAlt className='icon' /></Link>
+                    </nav>
+                </div>
+            </header>
+            <Outlet />
+        </div>
 
-    return (<>
-        {!profile ? (<>
-            <p>You must be loggedin to access this page. You will soon be redirected.</p>
-        </>
-        ) : (
-            <div className='wrapper'>
-                < header className='header'>
-                    <div className={styles.menu}>
-                        <FlexDiv>
-                            <h2 className='nameAppli'>Hi, {profile.name}</h2>
-                            <button onClick={() => setVisibleStatus(!visibleStatus)}> {getChevron()}</button>
-                        </FlexDiv>
-                        <nav className='links-container' data-visible={visibleStatus}>
-                            <Link className='link-box' to="/"><FaHome className='icon' /></Link>
-                            <Link className='link-box' to="info" onClick={getUserInfo}><FaRegUserCircle className='icon' /></Link>
-                            <Link className='link-box' to="asso"><FaRegListAlt className='icon' /></Link>
-                        </nav>
-                    </div>
-                </header>
-            </div >
-        )}
-        <Outlet />
-    </>
     );
 
 }
-
+//onClick={getUserInfo}
 export default Userpage1;
