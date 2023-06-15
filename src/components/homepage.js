@@ -3,6 +3,7 @@ import "../index.css"
 
 import { MapPage } from './Map_Assoc'
 import { Commentaire } from './Commentaire'
+import { AssoList } from './AssoList'
 
 function HomePage() {
     return (<div className='wrapper'>
@@ -17,8 +18,11 @@ function HomePage() {
         <div>
             <Commentaire />
         </div>
-        <div className='map'>
-            <MapPage />
+        <div className='map-wrapper'>
+            <div className='map'>
+                <MapPage />
+            </div>
+            <AssoList />
         </div>
     </div>
     )

@@ -1,0 +1,29 @@
+.listview {
+    display: flex;
+    flex-direction: column;
+}
+
+.listview button {
+    margin-top: -1px;
+    border: 1px black solid;
+    padding: 0.5rem;
+    text-align: center;
+    transition: all 500ms;
+    background-color: aliceblue;
+}
+
+.listview button:hover {
+    background-color: aquamarine;
+    transition: all 500ms;
+}
+
+.listview button[data-clicked=true] {
+    background-color: aquamarine;
+    transform: translate(-10px);
+}
+
+.header {
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
