@@ -1,11 +1,31 @@
 import styles from './assoList.module.css'
 import { useState, useRef } from 'react'
 import axios from "axios"
+import getUserData from '../lib/AuthHelper'
 export function AssoList() {
 
     const [clickedButton, setClickedButton] = useState()
+    const [profile, setProfile] = useState()
 
-    var userId = "6489fcfb22ecc34e945ab951"
+    const checkUserLoggedIn = async () => {
+        getUserData().then((res) => {
+            setProfile(res)
+        })
+            .catch(setProfile(null))
+    }
+
+    useEffect(
+        () => {
+            let ignore = false;
+            if (!ignore) {
+                checkUserLoggedIn()
+            }
+            return () => { ignore = true; }
+        }, []
+    )
+
+
+    const userId = checkUserLoggedIn();
     const [listasso, updatelistasso] = useState([]);
     const reqDone = useRef(false);
     function getUserInfo()
