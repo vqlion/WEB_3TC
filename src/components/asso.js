@@ -3,7 +3,7 @@ import '../index.css'
 import axios from 'axios';
 import { useState, useRef } from "react"
 function AssoUser() {
-    var userId = "6489fcfb22ecc34e945ab951"
+    const userId = sessionStorage.getItem("userData").id;
     const [listasso, updatelistasso] = useState([]);
     const reqDone = useRef(false);
     function getUserInfo()
@@ -23,12 +23,17 @@ function AssoUser() {
     if (reqDone.current==false) getUserInfo()
     return ( 
         <div className='wrapper'>
+
             <header className='header'><h2>Listes des associations</h2></header>
             <div className='affichage'> 
                 <div >
                     <h3></h3>
                     <p>{listasso}</p>
                 </div>
+                <b style={{fontSize: 20+ "px"}}>S'inscrire à une association</b>
+                <input id="inscription" type="text" placeholder="Nom de l'association"></input>
+                
+
             </div> 
         </div>
 

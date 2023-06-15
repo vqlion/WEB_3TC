@@ -25,6 +25,17 @@ function AuthPage() {
                     .then((res) => {
                         setProfile(res.data);
                         sessionStorage.setItem('userData', JSON.stringify(res.data))
+                        let userInfo =
+                            {
+                                username : res.data.name,
+                                assoList : [],
+                                google_id : res.data.id,
+                            }
+                        axios
+                            .post("http://localhost:8082/api/adduser", userInfo)
+                            .then(res => console.log(res))
+                            .catch(err => {})
+                            
                     })
                     .catch((err) => console.log(''));
             }

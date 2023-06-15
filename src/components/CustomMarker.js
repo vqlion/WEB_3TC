@@ -14,7 +14,7 @@ import axios from "axios"
   const customIcon = [customIconOff, customIconOn]
 
   const asso = sessionStorage.getItem('selectedAsso')
-  console.log("customMarker", asso)
+  //console.log("customMarker", asso)
  
   
   export function CustomMarker({coords, status, message}) {
@@ -32,7 +32,7 @@ import axios from "axios"
             reqDone.current = true; //to make sure the DB call only gets made once when we initialise the marker
                 let currentMarker = 
                   {
-                    AssoID: "exit",
+                    AssoID: sessionStorage.getItem("selectedAsso"),
                     Latitude: center["lat"],
                     Longitude: center["lng"],
                   } //we'll use that object to find the current marker in the DB and get its status if the marker
@@ -71,11 +71,12 @@ import axios from "axios"
       {
         let currentMarker = 
           {
-            AssoID: "exit",
+            AssoID: sessionStorage.getItem("selectedAsso"),
             Latitude: center["lat"],
             Longitude: center["lng"],
             Status: !iconStatus
           }
+          console.log(sessionStorage.getItem("selectedAsso"))
         axios
           .post('http://localhost:8082/api/updatemarker', currentMarker)
           .then((res) => {

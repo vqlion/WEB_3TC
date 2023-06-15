@@ -31,8 +31,9 @@ export function Commentaire() {
 
 	const postComment = () =>
 	  {
-		var asso = "exit"
-		var user = "alice"
+		const asso = sessionStorage.getItem("selectedAsso")
+		const username = JSON.parse(sessionStorage.getItem("userData")).name
+		console.log(username)
 		let now = new Date();
 		if (inputValue=="") 
 			{
@@ -43,7 +44,7 @@ export function Commentaire() {
 			"content": inputValue, 
 			"date": now,
 			"asso": asso,
-			"user": user
+			"user": username
 		}
 		axios
 			.post("http://localhost:8082/api/addcomment", temp)

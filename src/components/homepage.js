@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from "react"
 import getUserData from '../lib/AuthHelper'
 
 function HomePage() {
-    var asso = "exit"
+    var asso = sessionStorage.getItem("selectedAsso")
 
     const [profile, setProfile] = useState()
 
