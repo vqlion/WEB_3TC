@@ -34,17 +34,17 @@ function Userpage1() {
         return visibleStatus ? <FaChevronUp className='icon' /> : <FaChevronDown className='icon' />
     }
 
-    // const checkUserLoggedIn = async () => {
-    //     getUserData().then((res) =>{
-    //         setProfile(res)
-    //         if(!res) {
-    //             setTimeout(() => {
-    //             navigate('/login')
-    //             }, 2000);
-    //         }
-    //     }) 
-    //     .catch(setProfile(null))
-    // }
+    const checkUserLoggedIn = async () => {
+        getUserData().then((res) =>{
+            setProfile(res)
+            if(!res) {
+                setTimeout(() => {
+                navigate('/login')
+                }, 2000);
+            }
+        }) 
+        .catch(setProfile(null))
+    }
 
     return (
         <div className='wrapper'>

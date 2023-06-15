@@ -31,7 +31,7 @@ function Userdata() {
         
         reqDone.current=true;
         axios
-            .post("http://localhost:8082/api/getuser", {"_id": userId})
+            .post("http://localhost:8082/api/getusers", {"google_id": userId})
             .then(res=>
                     {
                         console.log(res.data)

@@ -10,13 +10,13 @@ function AssoUser() {
     {
         reqDone.current=true;
         axios
-            .post("http://localhost:8082/api/getuser", {"_id": userId})
+            .post("http://localhost:8082/api/getusers", {"google_id": userId})
             .then(res=>
                     {
                         console.log(res.data)
                         let userslist = res.data;
-                        let user= userslist.map(us => <div><b style={{fontSize:20 + 'px'}}>{us["assoList"]}</b> <br></br> </div>)
-                        updatelistasso(user);
+                        let asso= userslist.map(us => <div><b style={{fontSize:20 + 'px'}}>{us["assoList"]}</b> <br></br> </div>)
+                        updatelistasso(asso);
                     })
             .catch(err => console.log(err))
     }
