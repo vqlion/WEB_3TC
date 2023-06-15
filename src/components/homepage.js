@@ -4,11 +4,31 @@ import axios from 'axios'
 import { MapPage } from './Map_Assoc'
 import { Commentaire } from './Commentaire'
 import { AssoList } from './AssoList'
-import { useState, useRef } from "react"
-
+import { useState, useRef, useEffect } from "react"
+import getUserData from '../lib/AuthHelper'
 
 function HomePage() {
     var asso = "exit"
+
+    const [profile, setProfile] = useState()
+
+    const checkUserLoggedIn = async () => {
+        getUserData().then((res) => {
+            setProfile(res)
+        })
+            .catch(setProfile(null))
+    }
+
+    useEffect(
+        () => {
+            let ignore = false;
+            if (!ignore) {
+                checkUserLoggedIn()
+            }
+            return () => { ignore = true; }
+        }, []
+    )
+
     const [list, updateList] = useState([]);
     const reqDone = useRef(false);
     function getComments()

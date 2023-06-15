@@ -4,7 +4,6 @@ import { useState } from 'react'
 export function AssoList() {
 
     const [clickedButton, setClickedButton] = useState()
-    const [buttons, setButtons] = useState([])
 
     const buttonProps = [{
         id: 0,
