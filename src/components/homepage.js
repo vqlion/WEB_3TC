@@ -59,16 +59,17 @@ function HomePage() {
                 <a href="/profile" className='link-box'>Mon profil</a>
             </div>
         </div>
-        <div>
-            <Commentaire />
-        </div>
+
         <div className='map-wrapper'>
             <div className='map'>
                 <MapPage />
             </div>
             <AssoList />
         </div>
-        <h3>Commentaires</h3>
+        <div>
+            <Commentaire />
+        </div>
+        <h3></h3>
         <div>
         {list}
 

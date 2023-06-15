@@ -58,39 +58,42 @@ export function Commentaire() {
 
 	  }
 	
+	if (sessionStorage.getItem("selectedAsso"))
+	  {
+		return (
+			<SafeAreaView style={styles.screen}>
+			<div style={{float: 'right'}}>
+				{/** We are going to create a Modal with Text Input. */}
+				<Button title="Ecris un commentaire" onPress={toggleModalVisibility} />
+			</div>
+		<div style={{clear: 'both'}}></div>
+			<div></div>
+				
 
-	return (
-		<SafeAreaView style={styles.screen}>
-        <div style={{float: 'right'}}>
-            {/** We are going to create a Modal with Text Input. */}
-			<Button title="Ecris un commentaire" onPress={toggleModalVisibility} />
-        </div>
-       <div style={{clear: 'both'}}></div>
-        <div></div>
-			
+				{/** This is our modal component containing textinput and a button */}
+				<Modal animationType="slide"
+					transparent visible={isModalVisible}
+					presentationStyle="overFullScreen"
+					//onDismiss={dudu}
+					>
+					<View style={styles.viewWrapper}>
+						<View style={styles.modalView}>
+							<TextInput placeholder=""
+									value={inputValue} style={styles.textInput}
+									onChangeText={(value) => setInputValue(value)} />
 
-			{/** This is our modal component containing textinput and a button */}
-			<Modal animationType="slide"
-				transparent visible={isModalVisible}
-				presentationStyle="overFullScreen"
-				//onDismiss={dudu}
-				>
-				<View style={styles.viewWrapper}>
-					<View style={styles.modalView}>
-						<TextInput placeholder=""
-								value={inputValue} style={styles.textInput}
-								onChangeText={(value) => setInputValue(value)} />
+							{/** This button is responsible to close the modal */}
+							<Button title="Close" onPress={toggleModalVisibility}/>
+							<br></br>
+							<Button title="Submit" onPress={postComment}/>
 
-						{/** This button is responsible to close the modal */}
-						<Button title="Close" onPress={toggleModalVisibility}/>
-						<br></br>
-						<Button title="Submit" onPress={postComment}/>
-
+						</View>
 					</View>
-				</View>
-			</Modal>
-		</SafeAreaView>
-	);
+				</Modal>
+			</SafeAreaView>
+		);
+	}
+	else return
 }
 
 // These are user defined styles

@@ -2,10 +2,33 @@ import React from 'react'
 import '../index.css'
 import axios from 'axios';
 import { useState, useRef } from "react"
+import { Button } from "react-native";
 function AssoUser() {
-    const userId = sessionStorage.getItem("userData").id;
+    const userId = JSON.parse(sessionStorage.getItem("userData")).id;
     const [listasso, updatelistasso] = useState([]);
     const reqDone = useRef(false);
+    const sendSub = () =>
+    {
+        console.log("pressed")
+        let nameAsso = document.getElementById("inscription").value
+        if(nameAsso!="Exit" && nameAsso!="KLS" && nameAsso!="24" && nameAsso!="Karna")
+            {
+                alert("Cette association n'existe pas !");
+            }
+        else
+            {
+                let temp = 
+                {
+                    username: JSON.parse(sessionStorage.getItem("userData")).name,
+                    assoName: document.getElementById("inscription").value,
+                }
+            console.log(temp)
+            axios
+                .post("http://localhost:8082/api/subscribe", temp)
+                .then(res => alert(res.data))
+            }
+        
+    }
     function getUserInfo()
     {
         reqDone.current=true;
@@ -13,14 +36,14 @@ function AssoUser() {
             .post("http://localhost:8082/api/getusers", {"google_id": userId})
             .then(res=>
                     {
-                        console.log(res.data)
-                        let userslist = res.data;
-                        let asso= userslist.map(us => <div><b style={{fontSize:20 + 'px'}}>{us["assoList"]}</b> <br></br> </div>)
+                        let assoList = res.data[0]["assoList"];
+                        let asso= assoList.map(us => <div style={{fontSize:20 + 'px'}}>{us} <br></br> </div>)
                         updatelistasso(asso);
                     })
             .catch(err => console.log(err))
     }
     if (reqDone.current==false) getUserInfo()
+    console.log(listasso)
     return ( 
         <div className='wrapper'>
 
@@ -32,7 +55,9 @@ function AssoUser() {
                 </div>
                 <b style={{fontSize: 20+ "px"}}>S'inscrire à une association</b>
                 <input id="inscription" type="text" placeholder="Nom de l'association"></input>
-                
+               <div>
+                <button onClick={sendSub}>S'inscrire</button>
+               </div>
 
             </div> 
         </div>

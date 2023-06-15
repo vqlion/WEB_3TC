@@ -29,16 +29,20 @@ function loadJsonData() {
 export function MapPage() {
   console.log("res:", loadJsonData());
   const data = loadJsonData();
-  return (
-    <MapContainer center={[45.784296, 4.876554]} zoom={16}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.flaticon.com/free-icons/pin" title="pin icons">Pin icons created by Those Icons - Flaticon</a>, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+  if(sessionStorage.getItem("selectedAsso"))
+    {
+      return (
+        <MapContainer center={[45.784296, 4.876554]} zoom={16}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.flaticon.com/free-icons/pin" title="pin icons">Pin icons created by Those Icons - Flaticon</a>, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
 
-      {data.map(entry => (getMarker(entry)))}
-    </MapContainer>
-  );
+          {data.map(entry => (getMarker(entry)))}
+        </MapContainer>
+      );  
+    }
+  else return
 }
 
 

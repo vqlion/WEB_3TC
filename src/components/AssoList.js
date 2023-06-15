@@ -22,8 +22,15 @@ export function AssoList() {
     const reqDone = useRef(false);
     if (reqDone.current == false) {
         user = checkUserLoggedIn();
-        //if (user.id) getUserInfo(user.id)
-        getUserInfo("6489fcfb22ecc34e945ab951")
+        try {
+            const userID = JSON.parse(sessionStorage.getItem("userData")).id
+            if (userID) getUserInfo(userID)
+        }
+        catch
+            {
+                console.log("not logged in")
+            }
+        //getUserInfo(JSON.parse(sessionStorage.getItem("userData")).name)
         reqDone.current = true;
     }
 
@@ -32,6 +39,7 @@ export function AssoList() {
             .post("http://localhost:8082/api/getusers", { "google_id": u })
             .then(res => {
                 let asso = res.data[0]["assoList"];
+                console.log(res.data)
                 updatelistasso(asso);
             })
             .catch(err => console.log(err))
@@ -62,14 +70,18 @@ export function AssoList() {
 
         setClickedButton(buttonId)
     }
-
-    return (<>
-        <div>
-            <h1 className={styles.header}>Choisis ton asso</h1>
-            <div className={styles.listview}>
-                {buttonProps.map(entry => buttonGenerator(entry))}
-            </div>
-        </div>
-    </>
-    )
+    if(sessionStorage.getItem("userData"))
+        {
+            return (<>
+                <div>
+                    <h1 className={styles.header}>Choisis ton asso</h1>
+                    <div className={styles.listview}>
+                        {buttonProps.map(entry => buttonGenerator(entry))}
+                    </div>
+                </div>
+            </>
+            )   
+        }
+    else return
+   
 }

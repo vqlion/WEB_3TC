@@ -29,6 +29,8 @@ import axios from "axios"
       {
         if(!reqDone.current)
           {
+            if (sessionStorage.getItem("selectedAsso"))
+              {
             reqDone.current = true; //to make sure the DB call only gets made once when we initialise the marker
                 let currentMarker = 
                   {
@@ -50,6 +52,7 @@ import axios from "axios"
                   })
                   .catch( (err) => { console.log(err) });   
           }      
+        }
       }
     updateMarkersWithDB();
 
