@@ -14,25 +14,21 @@ export function AssoList() {
             .catch(setProfile(null))
     }
 
-    useEffect(
-        () => {
-            let ignore = false;
-            if (!ignore) {
-                checkUserLoggedIn()
-            }
-            return () => { ignore = true; }
-        }, []
-    )
-
-
-    const userId = checkUserLoggedIn();
+    let user
     const [listasso, updatelistasso] = useState([]);
     const reqDone = useRef(false);
-    function getUserInfo()
+    if (reqDone.current==false) 
         {
+            user = checkUserLoggedIn();
+            //if (user.id) getUserInfo(user.id)
+            getUserInfo("6489fcfb22ecc34e945ab951")
             reqDone.current=true;
+        }
+
+    function getUserInfo(u)
+        {
             axios
-                .post("http://localhost:8082/api/getusers", {"google_id": userId})
+                .post("http://localhost:8082/api/getusers", {"google_id": u})
                 .then(res=>
                         {
                             let asso = res.data[0]["assoList"];
@@ -40,7 +36,6 @@ export function AssoList() {
                         })
                 .catch(err => console.log(err))
         }
-    if (reqDone.current==false) getUserInfo()
 
     console.log(listasso)
     let i=0
