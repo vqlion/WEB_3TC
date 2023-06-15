@@ -7,6 +7,9 @@ export function AssoList() {
     const [clickedButton, setClickedButton] = useState()
     const [profile, setProfile] = useState()
 
+    const selectedAsso = sessionStorage.getItem('selectedAsso')
+
+
     const checkUserLoggedIn = async () => {
         getUserData().then((res) => {
             setProfile(res)
@@ -17,47 +20,46 @@ export function AssoList() {
     let user
     const [listasso, updatelistasso] = useState([]);
     const reqDone = useRef(false);
-    if (reqDone.current==false) 
-        {
-            user = checkUserLoggedIn();
-            //if (user.id) getUserInfo(user.id)
-            getUserInfo("6489fcfb22ecc34e945ab951")
-            reqDone.current=true;
-        }
+    if (reqDone.current == false) {
+        user = checkUserLoggedIn();
+        //if (user.id) getUserInfo(user.id)
+        getUserInfo("6489fcfb22ecc34e945ab951")
+        reqDone.current = true;
+    }
 
-    function getUserInfo(u)
-        {
-            axios
-                .post("http://localhost:8082/api/getusers", {"google_id": u})
-                .then(res=>
-                        {
-                            let asso = res.data[0]["assoList"];
-                            updatelistasso(asso);
-                        })
-                .catch(err => console.log(err))
-        }
+    function getUserInfo(u) {
+        axios
+            .post("http://localhost:8082/api/getusers", { "google_id": u })
+            .then(res => {
+                let asso = res.data[0]["assoList"];
+                updatelistasso(asso);
+            })
+            .catch(err => console.log(err))
+    }
 
     console.log(listasso)
-    let i=0
-    let buttonProps = listasso.map((a) =>
-        {
-            let temp = {"id": i, "text": a}
-            i++
-            return (temp)
-        })
+    let i = 0
+    let buttonProps = listasso.map((a) => {
+        let temp = { "id": i, "text": a }
+        i++
+        return (temp)
+    })
 
     const buttonGenerator = (props) => {
-        return <button onClick={handleButtonClick} data-id={props.id} data-clicked={clickedButton == props.id ? true : false}>{props.text}</button>
+        return <button onClick={handleButtonClick} data-id={props.id} data-text={props.text} data-clicked={clickedButton == props.id || selectedAsso == props.text ? true : false}>{props.text}</button>
     }
 
     const handleButtonClick = (e) => {
         const isClicked = e.target.getAttribute('data-clicked') == 'true' ? true : false
         const buttonId = parseInt(e.target.getAttribute('data-id'))
 
-        if (isClicked) {
-            setClickedButton(null)
-            return
-        }
+        if (isClicked) return
+
+        const name = e.target.getAttribute('data-text')
+        sessionStorage.setItem('selectedAsso', name)
+        console.log(name)
+        window.location.reload(false)
+
         setClickedButton(buttonId)
     }
 

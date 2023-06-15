@@ -12,6 +12,9 @@ import axios from "axios"
     iconSize: [38, 38]
   })
   const customIcon = [customIconOff, customIconOn]
+
+  const asso = sessionStorage.getItem('selectedAsso')
+  console.log("customMarker", asso)
  
   
   export function CustomMarker({coords, status, message}) {
