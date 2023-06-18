@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 
-export function Commentaire() {
+export function Comments() {
 	
 	// This is to manage Modal State
 	const [isModalVisible, setModalVisible] = useState(false);

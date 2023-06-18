@@ -1,12 +1,12 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AuthPage from './components/auth';
-import Userpage1 from './components/userpage1';
-import HomePage from './components/homepage';
+import AuthPage from './pages/AuthPage';
+import Userpage1 from './pages/ProfilePage';
+import HomePage from './pages/HomePage';
 import './App.css';
-import { MapPage } from './components/Map_Assoc'
-import Userdata from './components/info';
-import AssoUser from './components/asso';
+import { Map } from './components/Map'
+import Userdata from './components/UserData';
+import UserAssoList from './components/UserAssoList';
 
 function App() {
   return (
@@ -15,10 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<AuthPage />} />
-          <Route path="/map" element={<MapPage />} />
+          <Route path="/map" element={<Map />} />
           <Route path="profile" element={<Userpage1 />}>
             <Route path="info" element={<Userdata />} />
-            <Route path="asso" element={<AssoUser />} />
+            <Route path="asso" element={<UserAssoList />} />
           </Route>
         </Routes>
       </BrowserRouter>

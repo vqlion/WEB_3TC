@@ -1,0 +1,25 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.profile img {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.userButton {
+    text-align: center;
+    color: black;
+    text-shadow: 1px 1px 0px whitesmoke;
+    transition: all 100ms linear;
+}
+
+.userButton:hover {
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    transition: all 100ms linear;
+}

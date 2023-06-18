@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import getUserData from '../lib/AuthHelper';
+import styles from './AuthPage.module.css'
+import { Link } from 'react-router-dom';
+import { FaRegUserCircle, FaHome } from "react-icons/fa";
 
 function AuthPage() {
     const [user, setUser] = useState([]);
@@ -26,16 +29,16 @@ function AuthPage() {
                         setProfile(res.data);
                         sessionStorage.setItem('userData', JSON.stringify(res.data))
                         let userInfo =
-                            {
-                                username : res.data.name,
-                                assoList : [],
-                                google_id : res.data.id,
-                            }
+                        {
+                            username: res.data.name,
+                            assoList: [],
+                            google_id: res.data.id,
+                        }
                         axios
                             .post("http://localhost:8082/api/adduser", userInfo)
                             .then(res => console.log(res))
-                            .catch(err => {})
-                            
+                            .catch(err => { })
+
                     })
                     .catch((err) => console.log(''));
             }
@@ -62,34 +65,32 @@ function AuthPage() {
         sessionStorage.clear();
     };
 
-    const display = () => {
-        console.log(profile)
-    }
-
     return (
-        <div>
-            <h2>React Google Login</h2>
-            <br />
-            <br />
-            {profile ? (
-                <div>
-                    <img src={profile.picture} alt="user image" />
-                    <h3>User Logged in</h3>
-                    <p>Name: {profile.name}</p>
-                    <p>Email Address: {profile.email}</p>
-                    <br />
-                    <br />
-                    <br />
-                    <button onClick={logOut}>Log out</button>
-                    <br />
-                    <button onClick={display}>display</button>
+        <div className={styles.wrapper}>
+            <div className={styles.authBox}>
+
+                <h2>Connexion au compte</h2>
+                <div className={styles.authUserBox}>
+                    {profile ? (<>
+                        <h2>Bonjour, {profile.name}</h2>
+                        <p>Vous êtes connecté.</p>
+                        <button className={styles.authButton} onClick={logOut}>Se deconnecter</button>
+                        <div className={styles.buttonContainer}>
+                            <Link className='link-box' to="/"><FaHome className='icon' /></Link>
+                            <Link className='link-box' to="/profile/info"><FaRegUserCircle className='icon' /></Link>
+                        </div>
+                    </>
+                    ) : (<>
+
+                        <button className={styles.authButton} onClick={() => login()}>Se connecter avec Google</button>
+                        <div className={styles.buttonContainer}>
+                            <Link className='link-box' to="/"><FaHome className='icon' /></Link>
+                        </div>
+
+                    </>
+                    )}
                 </div>
-            ) : (<div>
-                <button onClick={display}>display</button>
-                <br />
-                <button onClick={() => login()}>Sign in with Google 🚀 </button>
             </div>
-            )}
         </div>
     );
 }

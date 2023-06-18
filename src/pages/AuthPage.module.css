@@ -1,0 +1,67 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('/public/back.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.authBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    backdrop-filter: blur(5px);
+    background-color: #283044;
+    box-shadow: 1px 1px 10px black;
+    border: 2px black solid;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: whitesmoke;
+}
+
+.authButton {
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 1px 1px 0px black;
+    transition: all 100ms linear;
+
+}
+
+.authButton:hover {
+    color: #D9FFF5;
+    text-shadow: 1px 1px 1px whitesmoke;
+    transition: all 100ms linear;
+}
+
+.authUserBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.authUserBox h2 {
+    font-size: 1.75rem;
+}
+
+.authUserBox p {
+    font-size: 1rem;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.buttonContainer>* {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 5px whitesmoke;
+}

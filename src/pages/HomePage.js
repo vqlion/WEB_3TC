@@ -1,9 +1,9 @@
-import './homepage.css'
+import './HomePage.css'
 import "../index.css"
 import axios from 'axios'
-import { MapPage } from './Map_Assoc'
-import { Commentaire } from './Commentaire'
-import { AssoList } from './AssoList'
+import { Map } from '../components/Map'
+import { Comments } from '../components/Comments'
+import { AssoList } from '../components/AssoList'
 import { useState, useRef, useEffect } from "react"
 import getUserData from '../lib/AuthHelper'
 
@@ -56,18 +56,18 @@ function HomePage() {
             <h1>Bienvenue</h1>
             <div className='links-container'>
                 <a href="/login" className='link-box'>Se connecter</a>
-                <a href="/profile" className='link-box'>Mon profil</a>
+                <a href="/profile/info" className='link-box'>Mon profil</a>
             </div>
         </div>
 
         <div className='map-wrapper'>
             <div className='map'>
-                <MapPage />
+                <Map />
             </div>
             <AssoList />
         </div>
         <div>
-            <Commentaire />
+            <Comments />
         </div>
         <h3></h3>
         <div>

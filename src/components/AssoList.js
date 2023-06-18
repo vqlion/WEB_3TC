@@ -1,4 +1,4 @@
-import styles from './assoList.module.css'
+import styles from './AssoList.module.css'
 import { useState, useRef } from 'react'
 import axios from "axios"
 import getUserData from '../lib/AuthHelper'

@@ -1,6 +1,6 @@
 //import "./styles.css";
 import "leaflet/dist/leaflet.css";
-import "./Map_Assoc.css"
+import "./Map.css"
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import L from 'leaflet';
 import { CustomMarker } from './CustomMarker'
@@ -26,7 +26,7 @@ function loadJsonData() {
   return data;
 }
 
-export function MapPage() {
+export function Map() {
   console.log("res:", loadJsonData());
   const data = loadJsonData();
   if(sessionStorage.getItem("selectedAsso"))
@@ -42,7 +42,8 @@ export function MapPage() {
         </MapContainer>
       );  
     }
-  else return
+    else if (sessionStorage.getItem('userData')) return (<p style={{textAlign: "center"}}>Veuillez choisir l'association dont vous voulez afficher la carte.</p>)
+  else return (<p style={{textAlign: "center"}}>Vous devez vous connecter pour accéder à la carte.</p>)
 }
 
 

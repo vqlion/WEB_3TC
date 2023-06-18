@@ -1,11 +1,10 @@
-import './user_page1.css'
 import '../index.css'
 import React from 'react'
 import { FaRegUserCircle, FaRegListAlt, FaChevronDown, FaChevronUp, FaHome } from "react-icons/fa";
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import styles from './menu.module.css'
+import styles from './ProfilePage.module.css'
 import styled from 'styled-components'
 import { useState, useEffect } from 'react';
 import getUserData from '../lib/AuthHelper';
@@ -30,9 +29,6 @@ function Userpage1() {
 
     const navigate = useNavigate()
 
-    const getChevron = () => {
-        return visibleStatus ? <FaChevronUp className='icon' /> : <FaChevronDown className='icon' />
-    }
 
     const checkUserLoggedIn = async () => {
         getUserData().then((res) => {
@@ -40,7 +36,7 @@ function Userpage1() {
             if (!res) {
                 setTimeout(() => {
                     navigate('/login')
-                }, 2000);
+                }, 2500);
             }
         })
             .catch(setProfile(null))
@@ -57,27 +53,26 @@ function Userpage1() {
     )
 
     return (<>
-        {!profile ? (<>
-            <p>You must be loggedin to access this page. You will soon be redirected.</p>
-        </>
-        ) : (
-            <div className='wrapper'>
-                < header className='header'>
-                    <div className={styles.menu}>
-                        <FlexDiv>
-                            <h2 className='nameAppli'>Hi, {profile.name}</h2>
-                            <button onClick={() => setVisibleStatus(!visibleStatus)}> {getChevron()}</button>
-                        </FlexDiv>
-                        <nav className='links-container' data-visible={visibleStatus}>
-                            <Link className='link-box' to="/"><FaHome className='icon' /></Link>
-                            <Link className='link-box' to="info" onClick={getUserInfo}><FaRegUserCircle className='icon' /></Link>
-                            <Link className='link-box' to="asso"><FaRegListAlt className='icon' /></Link>
-                        </nav>
-                    </div>
-                </header>
+        {!profile ? (<div className={styles.unauth}>
+            <h1>Oups!</h1>
+            <p>Vous devez être connecté pour pouvoir accéder à cette page. Vous allez être rédirigé vers la page de connexion.</p>
+        </div>
+        ) : (<>
+            <div className={styles.wrapper}>
+                <div className={styles.menu}>
+                    <FlexDiv>
+                        <h2 className='nameAppli'>Bonjour, {profile.name}</h2>
+                    </FlexDiv>
+                    <nav className='links-container' data-visible={visibleStatus}>
+                        <Link className='link-box' to="/"><FaHome className='icon' /></Link>
+                        <Link className='link-box' to="info" onClick={getUserInfo}><FaRegUserCircle className='icon' /></Link>
+                        <Link className='link-box' to="asso"><FaRegListAlt className='icon' /></Link>
+                    </nav>
+                </div>
+                <Outlet className={styles.outlet} />
             </div >
+        </>
         )}
-        <Outlet />
     </>
     );
 
